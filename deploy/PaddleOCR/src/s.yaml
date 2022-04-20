@@ -3,7 +3,6 @@ name: web-framework-app
 access: "{{ access }}"
 
 vars:
-  region: "{{ region }}"
   service:
     name: "{{ serviceName }}"
     description: '快速部署PaddleOCR 项目地址 https://github.com/duolabmeng6/paddlehub_ppocr'
@@ -12,13 +11,13 @@ services:
   framework:
     component: fc
     props:
-      region: cn-shenzhen
+      region: "{{ region }}"
       service:
         name: ${vars.service.name}
         description: ${vars.service.description}
         internetAccess: true
         role:
-          name: qianfeng-fc-deploy-role
+          name: paddleocrrole
           policies:
             - AliyunContainerRegistryReadOnlyAccess
       function:
